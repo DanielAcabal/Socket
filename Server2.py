@@ -15,11 +15,12 @@ async def handler(websocket, path):
     data = await websocket.recv()
     content = json.loads(data)
     insertar_datos(content["mac"],content["temp"],content["humidity"],content["time"])
-    reply = f"Data recieved!"
+    reply = f"Data recieved!"+data
     #print(ServerConnection.latency)
+    await asyncio.sleep(2)
     await websocket.send(reply)
 
-start_server = websockets.serve(handler, ip, port)
-
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+def main():
+    #asyncio.get_event_loop().run_until_complete(start_server)
+    start_server = websockets.serve(handler, ip, port)
+    #asyncio.get_event_loop().run_forever()

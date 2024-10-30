@@ -16,7 +16,7 @@ async def echo(websocket):
         try:
             content = json.loads(message)
             insertar_datos(content["mac"],content["temp"],content["humidity"],content["time"])
-            await websocket.send("Saved")
+            await websocket.send(f"Saved{content["time"]}")
         except :
             print("Error")
         #await websocket.send(str(time))
