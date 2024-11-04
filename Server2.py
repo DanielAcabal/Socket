@@ -1,4 +1,3 @@
-import asyncio
 import websockets
 import json
 import os
@@ -15,9 +14,10 @@ async def handler(websocket, path):
     data = await websocket.recv()
     content = json.loads(data)
     insertar_datos(content["mac"],content["temp"],content["humidity"],content["time"])
+    print(data)
     reply = f"Data recieved!"+data
     #print(ServerConnection.latency)
-    await asyncio.sleep(2)
+    #await asyncio.sleep(2)
     await websocket.send(reply)
 
 def main():
