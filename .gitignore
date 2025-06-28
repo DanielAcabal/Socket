@@ -1,2 +1,6 @@
 .venv
 .env
+#Tests
+threads
+test
+__pycache__

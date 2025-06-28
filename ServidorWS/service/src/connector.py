@@ -14,16 +14,15 @@ def insertar_datos(mac,temperatura, humedad,fecha):
     try:
         # Conectar a la base de datos MySQL
         conexion = mysql.connector.connect(
-            host=host,  # Cambia esto si tu servidor no está local
-            database=db,  # Nombre de tu base de datos
-            user=user,  # Usuario de MySQL
-            password=password  # Contraseña de MySQL
+            host=host,  
+            database=db,
+            user=user,  
+            password=password  
         )
 
         if conexion.is_connected():
             cursor = conexion.cursor()
 
-            # Consulta para insertar datos
             sql_insert_query = """ INSERT INTO temp_hum (MAC,temperature,humidity,read_date)
                                    VALUES (%s, %s,%s,%s)"""
 

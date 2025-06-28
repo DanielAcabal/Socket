@@ -22,4 +22,4 @@ ENV PASSWORD=${PASSWORD}
 
 EXPOSE 4000
 
-CMD [ "python", "./Server2.py" ]
+CMD [ "python", "./Server.py" ]
